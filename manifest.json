@@ -1,0 +1,40 @@
+
+{
+  "manifest_version": 2,
+
+  "name": "Paste From Clipboard History",
+  "description": "This extension allows the user to paste from the most recent items in their clipboard history",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "clipboard.png", 
+    "default_popup": "popup.html" 
+  },
+
+  "permissions": [
+    "activeTab",
+    "tabs", 
+    "clipboardRead", 
+    "clipboardWrite", 
+    "contextMenus",
+    "<all_urls>"
+  ], 
+
+  "icons": {
+  	"16": "clipboard.png"
+  }, 
+
+  "background": {
+    "scripts": ["background.js"]
+  }, 
+
+  "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ]
+  
+
+ } 
+
